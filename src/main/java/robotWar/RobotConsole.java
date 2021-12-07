@@ -1,5 +1,6 @@
 package robotWar;
 
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -20,7 +21,12 @@ public class RobotConsole {
     public static String getStringFromConsole() {
         Scanner scanner = new Scanner(System.in);
         try {
-            return scanner.nextLine().toUpperCase();
+            String str = scanner.nextLine().toUpperCase();
+            if (str.isEmpty()) {
+                System.out.println("Enter data!");
+                str = getStringFromConsole();
+            }
+            return str;
         } catch (Exception e) {
             return "Wrong data";
         }
@@ -56,6 +62,7 @@ public class RobotConsole {
         robot.setHealth(robot.getHealth() - 20);
         robot.setUsedButtonsList(removeDamage);
         System.out.println("Nice shot!");
+        System.out.println("Robot '" + robot.getName() + "' health is " + robot.getHealth());
     }
 
     public static void checkUsedDamageList(Robot robot, Character newChar) {
