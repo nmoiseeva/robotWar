@@ -26,9 +26,12 @@ public class Main {
                 if (robot.getDamageButtonsList().contains(newChar)) {
                     RobotConsole.checkDamage(robot, newChar);
                     if (robot.getHealth() == 0) {
-                        RobotConsole.winnerMessage(robot);
+                        RobotConsole.loserMessage(robot);
+                        robotList.remove(robot);
+                        System.out.println("And the winner is '" + robotList.get(0).getName()+ "'");
                         return;
                     }
+                    continue;
                 } if (robot.getHealth() < 100) {
                     RobotConsole.checkUsedDamageList(robot, newChar);
                 } else {

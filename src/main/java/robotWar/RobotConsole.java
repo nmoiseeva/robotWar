@@ -14,8 +14,8 @@ public class RobotConsole {
         System.out.println("Hmm, you will be lucky next time");
     }
 
-    public static void winnerMessage(Robot robot) {
-        System.out.println("Robot " + robot.getName() + " is dead. Good job, you are the winner!");
+    public static void loserMessage(Robot robot) {
+        System.out.println("Robot '" + robot.getName() + "' is dead");
     }
 
     public static String getStringFromConsole() {
@@ -68,6 +68,9 @@ public class RobotConsole {
     public static void checkUsedDamageList(Robot robot, Character newChar) {
         if (robot.getUsedButtonsList().contains(newChar)) {
             System.out.println("You can`t use letter '" + newChar + "' twice");
+        }
+        else {
+            missedMessage();
         }
     }
 }
